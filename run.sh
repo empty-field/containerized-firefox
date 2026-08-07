@@ -61,7 +61,7 @@ fi
 echo "Starting Firefox..."
 cd "${COMPOSE_DIR}"
 
-docker compose up --abort-on-container-exit --remove-orphans
+env HOST_UID="$(id -u)" docker compose up --abort-on-container-exit --remove-orphans
 
 # Force stop when main window closed
 docker compose stop

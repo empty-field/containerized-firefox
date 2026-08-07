@@ -7,6 +7,7 @@ Automatically rebuilds image if finds newer version at local APT cache.
 
 - Debian host system (Trixie recommended)
 - Docker with permission for the current user
+- Docker compose plugin
 - X11
 - PipeWire (for audio)
 

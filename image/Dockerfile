@@ -1,6 +1,6 @@
 FROM debian:trixie
 
-LABEL description="Firefox ESR isolated by e_f & Grok"
+LABEL description="Somewhat isolated Firefox ESR"
 
 ENV DEBIAN_FRONTEND=noninteractive \
     LANG=en_US.UTF-8 \
