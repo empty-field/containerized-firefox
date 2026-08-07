@@ -3,7 +3,6 @@ version: '3.8'
 services:
   firefox:
     image: firefox-esr-f:latest
-    user: "1000:1000"
     userns_mode: "keep-id"
     shm_size: "2gb"
     restart: "no"

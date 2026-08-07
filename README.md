@@ -21,7 +21,7 @@ Automatically rebuilds image if finds newer version at local APT cache.
 ### Why?
 
 I just wanted browser with profile, isolated from main system. Just in case, y'know.
-And uploaded it just to distribute metween my devices.
+And uploaded it just to distribute between my devices.
 
 ### Why Debian/X11/Pipewire/whatever..
 

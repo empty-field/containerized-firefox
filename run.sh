@@ -17,7 +17,7 @@ if ! command -v apt-cache >/dev/null; then
     exit 1
 fi
 
-FF_FULL_VERSION=$(apt-cache policy firefox-esr 2>/dev/null | awk '/Кандидат:/ {print $2}')
+FF_FULL_VERSION=$(LC_ALL=C apt-cache policy firefox-esr 2>/dev/null | awk '/Candidate:/ {print $2}')
 if [[ -z "$FF_FULL_VERSION" || "$FF_FULL_VERSION" == "(none)" ]]; then
     echo "Unable to determine available firefox version"
     exit 1
