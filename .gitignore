@@ -1,0 +1,92 @@
+# ==========================
+# Firefox profile & downloads
+# ==========================
+compose/firefox-data/**
+compose/downloads/**
+!compose/firefox-data/.gitkeep
+!compose/downloads/.gitkeep
+compose/firefox-profile/**
+!compose/firefox-profile/.gitkeep
+
+# ==========================
+# Editors & IDEs
+# ==========================
+
+# Kate
+*.kate-swp
+.kateproject
+.kateproject.d/
+*.kateconfig
+
+# VS Code / VSCodium / Cursor
+.vscode/
+*.code-workspace
+
+# JetBrains (IntelliJ, PyCharm, CLion, Rider и т.д.)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim / Neovim
+*.swp
+*.swo
+*.swn
+*~
+.un~
+Session.vim
+.nvimlog
+
+# Emacs
+*~
+\#*\#
+.emacs.desktop
+.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Eclipse
+.settings/
+.project
+.classpath
+.cproject
+
+# ==========================
+# File managers
+# ==========================
+
+# Dolphin / KDE
+.directory
+.directory.*
+.dolphinview
+*.dolphin
+
+# Nautilus / GNOME
+.nautilus
+.nautilus-meta*
+
+# Thunar / XFCE
+.thumbs
+.thumbnail*
+
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
+
+*.bak
+*.tmp
+*.temp
+*.log
+*.old
+.cache/

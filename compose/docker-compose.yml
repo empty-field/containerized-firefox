@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  firefox:
+    image: firefox-esr-f:latest
+    user: "1000:1000"
+    userns_mode: "keep-id"
+    shm_size: "2gb"
+    restart: "no"
+    security_opt:
+      - apparmor=unconfined
+    command: ["firefox-esr"]
+    devices:
+      - /dev/dri:/dev/dri
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=/tmp/.Xauthority
+      - PULSE_SERVER=unix:/run/user/1000/pulse/native
+      - XDG_RUNTIME_DIR=/run/user/1000
+    volumes:
+      # X11
+      - /tmp/.X11-unix:/tmp/.X11-unix:ro
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/tmp/.Xauthority:ro
+
+      # Профиль и загрузки
+      - ./firefox-profile:/home/firefox/.mozilla
+      - ./downloads:/home/firefox/Downloads
+
+      # PipeWire / PulseAudio
+      - /run/user/1000/pulse:/run/user/1000/pulse:ro
+      - /run/user/1000/pipewire-0:/run/user/1000/pipewire-0:ro
+
+      - /dev/shm:/dev/shm
