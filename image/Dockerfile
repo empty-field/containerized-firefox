@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libx11-xcb1 \
         libasound2t64 \
         libpulse0 \
+        libnss3-tools \
         firefox-esr \
     && sed -i 's/^# *en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && locale-gen en_US.UTF-8 \
