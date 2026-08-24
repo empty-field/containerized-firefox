@@ -9,6 +9,17 @@ ENV DEBIAN_FRONTEND=noninteractive \
     MOZ_DISABLE_CONTENT_SANDBOX=1 \
     HOME=/home/firefox
 
+ARG USER_ID=1000
+ARG GROUP_ID=1000
+
+RUN groupadd -g ${GROUP_ID} firefox \
+    && useradd -m -u ${USER_ID} -g ${GROUP_ID} -s /bin/bash firefox \
+    && mkdir -p /home/firefox/.mozilla \
+                /home/firefox/Downloads \
+    && chown -R firefox:firefox /home/firefox
+
+ARG CACHE_BUST=1
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
         locales \
@@ -27,15 +38,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && update-locale LANG=en_US.UTF-8 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
-
-ARG USER_ID=1000
-ARG GROUP_ID=1000
-
-RUN groupadd -g ${GROUP_ID} firefox \
-    && useradd -m -u ${USER_ID} -g ${GROUP_ID} -s /bin/bash firefox \
-    && mkdir -p /home/firefox/.mozilla \
-                /home/firefox/Downloads \
-    && chown -R firefox:firefox /home/firefox
 
 USER firefox
 WORKDIR /home/firefox
