@@ -120,6 +120,7 @@ else
     docker build \
         --build-arg USER_ID="$(id -u)" \
         --build-arg GROUP_ID="$(id -g)" \
+        --build-arg CACHE_BUST="$(date +%s)" \
         -t "${IMAGE_TAG}" \
         -t "${IMAGE_LATEST}" \
         -f "${DOCKERFILE_PATH}" \
